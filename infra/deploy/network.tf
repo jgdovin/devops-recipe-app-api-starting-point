@@ -105,3 +105,33 @@ resource "aws_subnet" "private_b" {
     Name = "${local.prefix}-private-b"
   }
 }
+
+# ########################################################################
+# # Endpoints to allow ECS to access ECR, Cloudwatch and Systems Manager #
+# ########################################################################
+
+# resource "aws_security_group" "endpoint_access" {
+#   description = "Access to endpoints"
+#   name = "${local.prefix}-endpoint-access"
+#   vpc_id = aws_vpc.main.id
+
+#   ingress {
+#     cidr_blocks = [aws_vpc.main.cidr_block]
+#     from_port = 443
+#     to_port = 443
+#     protocol = "tcp"
+#   }
+# }
+
+# resource "aws_vpc_endpoint" "ecr" {
+#   vpc_id = aws_vpc.main.id
+#   service_name = "com.amazonaws.${data.aws_region.current.name}.ecr.dkr"
+#   vpc_endpoint_type = "Interface"
+#   private_dns_enabled = true
+#   security_group_ids = [aws_security_group.endpoint_access.id]
+#   subnet_ids = [aws_subnet.private_a.id, aws_subnet.private_b.id]
+
+#   tags = {
+#     Name = "${local.prefix}-ecr-endpoint"
+#   }
+# }
