@@ -32,7 +32,7 @@ resource "aws_db_instance" "main" {
   db_name                    = "recipe"
   allocated_storage          = 20
   storage_type               = "gp3"
-  engine                     = "postgresql"
+  engine                     = "postgres"
   engine_version             = "16.3"
   auto_minor_version_upgrade = true
   instance_class             = "db.t4g.medium"
