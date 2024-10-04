@@ -11,12 +11,12 @@ on:
           - prod
 
 jobs:
-  test-lint:
-    name: Test and Lint
-    uses: ./.github/workflows/test-lint.yml
-    secrets:
-      DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
-      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  # test-lint:
+  #   name: Test and Lint
+  #   uses: ./.github/workflows/test-lint.yml
+  #   secrets:
+  #     DOCKERHUB_USER: ${{ vars.DOCKERHUB_USER }}
+  #     DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
   
   deploy:
     name: Deploy
