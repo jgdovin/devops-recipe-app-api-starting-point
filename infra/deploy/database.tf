@@ -31,8 +31,9 @@ resource "aws_db_instance" "main" {
   identifier                 = "${local.prefix}-db"
   db_name                    = "recipe"
   allocated_storage          = 20
-  engine                     = "aurora-postgresql"
-  engine_version             = "15.3"
+  storage_type               = "gp3"
+  engine                     = "postgresql"
+  engine_version             = "16.3"
   auto_minor_version_upgrade = true
   instance_class             = "db.t4g.medium"
   username                   = var.db_username
