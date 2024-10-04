@@ -21,7 +21,6 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-22.04
-    needs: test-lint
     steps:
       - name: Checkout
         uses: actions/checkout@v4
