@@ -45,7 +45,6 @@ jobs:
           TF_VAR_django_secret_key: ${{ secrets.TF_VAR_DJANGO_SECRET_KEY }}
         run: |
           export TF_VAR_ecr_app_image="${{ vars.ECR_REPO_APP }}:$GITHUB_SHA"
-          echo $TF_VAR_ecr_app_image
           export TF_VAR_ecr_proxy_image="${{ vars.ECR_REPO_PROXY }}:$GITHUB_SHA"
           workspace=$(cat .workspace)
           cd infra/
