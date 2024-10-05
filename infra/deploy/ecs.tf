@@ -176,7 +176,7 @@ resource "aws_security_group" "ecs_service" {
     from_port   = 8000
     to_port     = 8000
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = [aws_security_group.lb.id]
   }
 }
 
