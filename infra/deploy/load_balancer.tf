@@ -46,6 +46,8 @@ resource "aws_lb_target_group" "app" {
   health_check {
     path = "/api/health-check/"
   }
+
+  depends_on = [ aws_lb.app ]
 }
 
 resource "aws_lb_listener" "app" {
