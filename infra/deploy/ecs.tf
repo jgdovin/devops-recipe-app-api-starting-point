@@ -53,12 +53,6 @@ resource "aws_ecs_task_definition" "api" {
       essential         = true
       memoryReservation = 256
       user              = "django-user"
-      portMappings = [
-        {
-          containerPort = 8000
-          hostPort      = 8000
-        }
-      ]
       environment = [
         {
           name  = "DJANGO_SECRET_KEY"
