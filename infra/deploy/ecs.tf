@@ -173,9 +173,9 @@ resource "aws_security_group" "ecs_service" {
 
   # HTTP inbound access
   ingress {
-    from_port   = 8000
-    to_port     = 8000
-    protocol    = "tcp"
+    from_port       = 8000
+    to_port         = 8000
+    protocol        = "tcp"
     security_groups = [aws_security_group.lb.id]
   }
 }
@@ -200,7 +200,7 @@ resource "aws_ecs_service" "app" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.app.arn
-    container_name = "proxy"
-    container_port = 8000
-   }
+    container_name   = "proxy"
+    container_port   = 8000
+  }
 }
