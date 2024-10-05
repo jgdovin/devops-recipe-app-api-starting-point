@@ -44,7 +44,7 @@ resource "aws_ecs_cluster" "main" {
   name = "${local.prefix}-cluster"
 }
 
-resource "aws_ecs_task_definition" "api" {
+resource "aws_ecs_task_definition" "app" {
   family = "${local.prefix}-api"
   container_definitions = jsonencode([
     {
@@ -180,10 +180,10 @@ resource "aws_security_group" "ecs_service" {
   }
 }
 
-resource "aws_ecs_service" "api" {
-  name                   = "${local.prefix}-api"
+resource "aws_ecs_service" "app" {
+  name                   = "${local.prefix}-app"
   cluster                = aws_ecs_cluster.main.name
-  task_definition        = aws_ecs_task_definition.api.family
+  task_definition        = aws_ecs_task_definition.app.family
   desired_count          = 1
   launch_type            = "FARGATE"
   platform_version       = "1.4.0"
